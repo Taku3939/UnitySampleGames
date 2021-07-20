@@ -10,7 +10,7 @@ namespace UnitySampleGames.Sample001
         public float limit_h = -20f;
         public GameObject template;
         public Transform regeneratePoint;
-
+        
         private GameObject currentCharacter;
 
         private void Update()
