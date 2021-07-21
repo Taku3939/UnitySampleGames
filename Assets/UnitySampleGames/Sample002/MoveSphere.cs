@@ -13,13 +13,13 @@ namespace UnitySampleGames.Sample002
         [SerializeField] private Vector3 vec = new Vector3(1, 0, 0);
         private readonly List<IObserver<int>> _observers = new List<IObserver<int>>();
 
-        [SerializeField] private Rigidbody rigidbody;
+        private Rigidbody _rigidbody;
         private int Count => target.transform.childCount;
 
         private void Start()
         {
-            rigidbody = this.GetComponent<Rigidbody>();
-            rigidbody.velocity = new Vector3(vec.x, vec.y, 0f) * speed;
+            _rigidbody = this.GetComponent<Rigidbody>();
+            _rigidbody.velocity = new Vector3(vec.x, vec.y, 0f) * speed;
         }
 
         public void GameStart()
@@ -41,7 +41,7 @@ namespace UnitySampleGames.Sample002
             {
                 var v = Vector3.Reflect(vec, contact.normal);
                 vec = new Vector3(v.x, v.y, 0);
-                rigidbody.velocity = new Vector3(vec.x, vec.y, 0f) * speed;
+                _rigidbody.velocity = new Vector3(vec.x, vec.y, 0f) * speed;
             }
 
             //Cubeタグが付いたオブジェクトに衝突したとき
